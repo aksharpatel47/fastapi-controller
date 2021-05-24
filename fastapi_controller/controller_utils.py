@@ -172,7 +172,6 @@ def _copy_func(f):
                            closure=f.__closure__)
     g = update_wrapper(g, f)
     g.__kwdefaults__ = f.__kwdefaults__
-    setattr(g, "__signature__", getattr(f, "__signature__"))
     return g
 
 
@@ -196,13 +195,13 @@ def _register_controller_to_router(router: APIRouter,
 
     for name, value in routes_dict.items():
         member = getattr(controller, name)
-        _update_generic_parameters_signature(generic_dict, member)
+        new_member = _copy_func(member)
+        _update_generic_parameters_signature(generic_dict, new_member)
         route_method = getattr(router, value[METHOD_KEY])
         path = _compute_path(value[PATH_KEY], controller, path_template,
                              version)
         kwargs = _update_generic_args(generic_dict, value[KWARGS_KEY])
 
-        new_member = _copy_func(member)
         new_route_method = route_method(path, **kwargs)(new_member)
         setattr(controller, name, new_route_method)
 
