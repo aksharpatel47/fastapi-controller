@@ -5,7 +5,7 @@ with open("Readme.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="fastapi-controller",
-    version="0.0.4",
+    version="0.0.5",
     author="Akshar Patel",
     author_email="akshar.patel.47@gmail.com",
     description="Package to create API controllers that can inherit routes",
