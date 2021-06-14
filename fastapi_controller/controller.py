@@ -35,8 +35,7 @@ def register_controllers_to_app(app: FastAPI,
     app.include_router(router)
 
 
-def create_controller(template_path_prefix: str = "", version: str = "") -> \
-    Type[ControllerBase]:
+def create_controller(template_path_prefix: str = "", version: str = "") -> Type[ControllerBase]:
     """
     Create a base controller that can be used as a parent controller for other
     Controllers. Allows the ability to add a path prefix and to version the

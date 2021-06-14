@@ -4,6 +4,12 @@ Write Fast API Controllers (Classes) that can inherit route information from it'
 
 This utility library is written on top of [fastapi-utils](https://github.com/dmontagu/fastapi-utils/).
 
+## Install
+
+```
+$ pip install fastapi-controller
+```
+
 ## Example
 
 ```python
@@ -49,7 +55,7 @@ class PeopleController(DefaultController):
         return {"create": self.user_id}
 
 
-class JobsController(DefaultController):
+class ScheduledJobsController(DefaultController):
     # The jobs controller will have the two GET routes from the parent
     # class with one of the routes implementation overridden.
     def get_one(self, model_id: int):
@@ -62,7 +68,7 @@ if __name__ == '__main__':
     app = FastAPI()
     # This function registers all the child controllers who have
     # ControllerBase as their parent in their inheritance heirarchy.
-    # IntermediateControllers between the ControllerBase and the
+    # Intermediate Controllers between the ControllerBase and the
     # Child Controllers are ignored
     # For e.g. For the following inheritance heirarchy
     # ControllerBase -> DefaultController -> DerivedController -> FunctionsController -> PeopleController
@@ -79,6 +85,6 @@ With the above example, the following API routes will be registered:
 GET  /v1.0/people/
 GET  /v1.0/people/{model_id}
 POST /v1.0/people/
-GET  /v1.0/jobs/
-GET  /v1.0/jobs/{model_id}
+GET  /v1.0/scheduled_jobs/
+GET  /v1.0/scheduled_jobs/{model_id}
 ```
