@@ -7,9 +7,9 @@ from typing import Callable, Dict, Set, Type
 
 import typing_inspect
 from fastapi import APIRouter
-from fastapi_utils.cbv import cbv
+from .cbv import cbv
 
-controller_re = re.compile("([\w]+)Controller")
+controller_re = re.compile("([\\w]+)Controller")
 snake_case_re = re.compile("(?<!^)(?=[A-Z][a-z])")
 
 TEMPLATE_PATH_KEY = "__template_path__"

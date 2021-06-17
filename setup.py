@@ -14,9 +14,7 @@ setup(
     url="https://github.com/aksharpatel47/fastapi-controller",
     packages=["fastapi_controller"],
     install_requires=[
-        "fastapi-utils>=0.2.1",
-        "fastapi[all]>=0.65.0",
-        "typing-inspect>=0.7.1"
+        "fastapi[all]>=0.65.2",
     ],
     extra_require={
         'dev': [
