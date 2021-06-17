@@ -7,7 +7,7 @@ from typing import Callable, Dict, Set, Type
 
 import typing_inspect
 from fastapi import APIRouter
-from .cbv import cbv
+from fastapi_utils.cbv import cbv
 
 controller_re = re.compile("([\\w]+)Controller")
 snake_case_re = re.compile("(?<!^)(?=[A-Z][a-z])")
